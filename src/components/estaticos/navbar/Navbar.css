@@ -1,0 +1,20 @@
+
+@font-face {
+    font-family: "Minecraft";
+    src: url("../../assets/fonts/Minecraft.ttf");
+}
+h5:hover{
+    color: #DE4C6F;
+}
+h6:hover{
+    color: #62B2CC;
+}
+h5{
+    font-family: "Minecraft"!important;
+}
+h6{
+    font-family: "Minecraft"!important;
+}
+.back{
+    background: linear-gradient(36deg, #50E0F8 8%, #62B2CC 60%)!important;
+}

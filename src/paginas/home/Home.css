@@ -1,9 +1,14 @@
-.titulo{
-    text-align: center;
-    color: #D5AF52;
+@font-face {
+    font-family: "Minecraft";
+    src: url("../../components/assets/fonts/Minecraft.ttf");
 }
+
 .img{
-    width: 135px;
-    display: block;
-    margin: auto;
+    width: 100px;
+}
+.body{
+    height: 90vh;
+    background-image: url(https://i.pinimg.com/originals/b8/2f/28/b82f28a7e9c8fcb3868d3d94652c107c.gif);
+    background-repeat: no-repeat;
+    background-size: cover;
 }

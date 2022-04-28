@@ -1,20 +1,29 @@
 
 @font-face {
-    font-family: "Minecraft";
-    src: url("../../assets/fonts/Minecraft.ttf");
+    font-family: "Pixel";
+    src: url("../../assets/fonts/Pokemon\ Classic.ttf");
 }
-h5:hover{
-    color: #DE4C6F;
+.green:hover{
+    color: greenyellow!important;
 }
-h6:hover{
-    color: #62B2CC;
+.red:hover{
+    color: #DE4C6F!important;
+}
+h3{
+    font-family: "Pixel"!important;
 }
 h5{
-    font-family: "Minecraft"!important;
+    font-family: "Pixel"!important;
 }
 h6{
-    font-family: "Minecraft"!important;
+    font-family: "Pixel"!important;
 }
 .back{
     background: linear-gradient(36deg, #50E0F8 8%, #62B2CC 60%)!important;
+}
+.bar{
+    justify-content: right;
+}
+.title{
+    padding-right: 250px;
 }

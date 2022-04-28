@@ -8,7 +8,7 @@ function Navbar() {
       <AppBar position="static" className="back">
         <Toolbar variant="dense" className="bar">
           <Box style={{ cursor: "pointer" }}>
-            <Typography variant="h5" color="inherit">
+            <Typography className="title" variant="h5" color="inherit">
               Games Indie
             </Typography>
           </Box>
@@ -30,12 +30,12 @@ function Navbar() {
               </Typography>
             </Box>
             <Box mx={1} style={{ cursor: "pointer" }}>
-              <Typography variant="h6" color="inherit">
+              <Typography className="green" variant="h6" color="inherit">
                 cadastrar tema
               </Typography>
             </Box>
             <Box mx={1} style={{ cursor: "pointer" }}>
-              <Typography variant="h6" color="inherit">
+              <Typography className="red" variant="h6" color="inherit">
                 logout
               </Typography>
             </Box>

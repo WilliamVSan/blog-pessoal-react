@@ -10,10 +10,9 @@ function Home() {
         direction="row"
         justifyContent="flex-end"
         alignItems="center"
-        style={{ backgroundColor: "#3F51B5" }}
-        className="body"
+        className="caixa"
       >
-        <Grid alignItems="center" xs={12} sm={6}>
+        <Grid alignItems="flex-start" xs={12} sm={6}>
           <Box paddingX={20}>
             <Typography
               variant="h3"
@@ -21,7 +20,7 @@ function Home() {
               color="textPrimary"
               component="h3"
               align="center"
-              style={{ color: "white", fontWeight: "bold", textShadow: "4px 2px 1px grey"}}
+              className="titulo"
             >
               Seja Bem Vindo(a)!
             </Typography>
@@ -31,7 +30,7 @@ function Home() {
               color="textPrimary"
               component="h5"
               align="center"
-              style={{ color: "white", fontWeight: "bold", textShadow: "4px 2px 1px grey" }}
+              className="titulo"
             >
               expresse aqui os seus pensamentos e opiniões!
             </Typography>
@@ -41,12 +40,7 @@ function Home() {
             <Button
               variant="outlined"
               color="secondary"
-              style={{
-                borderColor: "black",
-                backgroundColor: "white",
-                color: "black",
-                fontWeight: "bold"
-              }}
+              className="botao"
             >
               Ver Postagens
             </Button>
@@ -54,10 +48,10 @@ function Home() {
         </Grid>
         <Grid item xs={3}>
         </Grid>
-        <Grid xs={12} style={{ backgroundColor: "white" }}></Grid>
         <Box>
           <img className="img" src="https://cdn.streamelements.com/uploads/b89b1bdb-0499-4760-a118-5b961d55c18c.gif" alt="gatinho" />
         </Box>
+        <Grid xs={12} className="postagem"></Grid>
       </Grid>
     </>
   );

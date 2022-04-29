@@ -15,7 +15,7 @@ function Login() {
               color="textPrimary"
               component="h5"
               align="center"
-              style={{ fontWeight: "bold" }}
+              className="bold"
             >
               Entrar
             </Typography>
@@ -54,19 +54,14 @@ function Login() {
               variant="subtitle1"
               gutterBottom
               align="center"
-              style={{ fontWeight: "bold" }}
+              className="register"
             >
               Cadastre-se
             </Typography>
           </Box>
         </Box>
       </Grid>
-      <Grid xs={6} style={{
-         backgroundImage: `url(https://camo.githubusercontent.com/40778cdded69af0df0c40f56d0d5b1b35188b7704664ea24e0b8024234aba9ea/68747470733a2f2f65787465726e616c2d636f6e74656e742e6475636b6475636b676f2e636f6d2f69752f3f753d6874747073253341253246253246646174612e77686963646e2e636f6d253246696d616765732532463238373732323934392532466f726967696e616c2e67696626663d31266e6f66623d31)`,
-         backgroundRepeat: "no-repeat", width: "100vh", minHeight: "100vh", backgroundSize: "cover", backgroundPosition: "left"
-
-      }}>
-
+      <Grid xs={6} className="background">
       </Grid>
     </Grid>
   );

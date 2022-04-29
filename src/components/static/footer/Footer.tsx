@@ -3,6 +3,7 @@ import InstagramIcon from "@material-ui/icons/Instagram";
 import GitHubIcon from "@material-ui/icons/GitHub"
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import { Typography, Box, Grid } from "@material-ui/core";
+import "./Footer.css";
 
 function Footer() {
   return (
@@ -14,7 +15,7 @@ function Footer() {
         alignItems="center"
       >
         <Grid alignItems="center" item xs={12}>
-          <Box style={{ backgroundColor: "#328ABD", height: "120px" }}>
+          <Box className="box5">
             <Box
               paddingTop={1}
               display="flex"
@@ -22,10 +23,10 @@ function Footer() {
               justifyContent="center"
             >
               <Typography
-                variant="h5"
+                variant="h6"
                 align="center"
                 gutterBottom
-                style={{ color: "white" }}
+                className="textos"
               >
                 Siga-nos nas redes sociais{" "}
               </Typography>
@@ -35,29 +36,29 @@ function Footer() {
                 href="https://github.com/WilliamVSan"
                 target="_blank"
               >
-                <GitHubIcon style={{ fontSize: 50, color: "white" }} />
+                <GitHubIcon className="redes" />
               </a>
               <a
                 href="https://www.instagram.com/williamvsantoss/"
                 target="_blank"
               >
-                <InstagramIcon style={{ fontSize: 60, color: "white" }} />
+                <InstagramIcon className="redes" />
               </a>
               <a
                 href="https://www.linkedin.com/in/william-v-santos/"
                 target="_blank"
               >
-                <LinkedInIcon style={{ fontSize: 60, color: "white" }} />
+                <LinkedInIcon className="redes" />
               </a>
             </Box>
           </Box>
-          <Box style={{ backgroundColor: "#22589C", height: "60px" }}>
+          <Box className="box2">
             <Box paddingTop={1}>
               <Typography
                 variant="subtitle2"
                 align="center"
                 gutterBottom
-                style={{ color: "white" }}
+                className="textos"
               >
                 © 2022 Copyright:
               </Typography>
@@ -67,8 +68,8 @@ function Footer() {
                 <Typography
                   variant="subtitle2"
                   gutterBottom
-                  style={{ color: "white" }}
                   align="center"
+                  className="textos"
                 >
                   brasil.generation.org
                 </Typography>

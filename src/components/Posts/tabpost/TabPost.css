@@ -1,0 +1,16 @@
+.sobre{
+    font-weight: bold;
+    color: white;
+ }
+ .white{
+     color: white;
+ }
+ .tabs{
+     color: white;
+ }
+ .appbar{
+    background: linear-gradient(36deg, #50E0F8 8%, #62B2CC 60%)!important;
+ }
+ .fundoSobre{
+     background-color: #22589C;
+ }

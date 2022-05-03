@@ -2,6 +2,7 @@ import React from "react";
 import { Typography, Box, Grid, Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import "./Home.css";
+import TabPost from "../../components/Posts/tabpost/TabPost";
 
 function Home() {
   return (
@@ -52,7 +53,9 @@ function Home() {
         <Box>
           <img className="img" src="https://cdn.streamelements.com/uploads/b89b1bdb-0499-4760-a118-5b961d55c18c.gif" alt="gatinho" />
         </Box>
-        <Grid xs={12} className="postagem"></Grid>
+      </Grid>
+      <Grid xs={12} className="postagem">
+          <TabPost />
       </Grid>
     </>
   );

@@ -1,17 +1,83 @@
-import React, { ChangeEvent, useEffect, useState} from "react";
+import React, { ChangeEvent, useEffect, useState } from "react";
 
 import { Grid, Box, Typography, Button, TextField } from "@material-ui/core";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
+import User from "../../models/User";
+import { cadastroUsuario } from "../../services/Service";
 
 import "./RegisterUser.css";
 
 function RegisterUser() {
+
+  let history = useNavigate()
+
+  const [confirmarSenha, setConfirmarSenha] = useState<String>("")
+
+  const [user, setUser] = useState<User>({
+    id: 0,
+    nome: '',
+    usuario: '',
+    senha: '',
+    foto: ''
+  })
+
+  const [userResult, setUserResult] = useState<User>({
+    id: 0,
+    nome: '',
+    usuario: '',
+    senha: '',
+    foto: ''
+  })
+
+  useEffect(() => {
+    if (userResult.id !== 0) {
+      history("/usuarios/logar")
+    }
+  }, [userResult])
+
+  function confirmarSenhaHandle(e: ChangeEvent<HTMLInputElement>) {
+    setConfirmarSenha(e.target.value)
+  }
+
+  function updatedModel(e: ChangeEvent<HTMLInputElement>) {
+    setUser({
+      ...user,
+      [e.target.name]: e.target.value
+    })
+  }
+  async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
+    e.preventDefault()
+
+
+    if (confirmarSenha === user.senha && user.senha.length >= 8) {
+
+
+      try {
+        cadastroUsuario(`/usuarios/cadastrar`, user, setUserResult)
+        alert('Usuario cadastrado com sucesso')
+
+
+      } catch (error) {
+        console.log(`Error: ${error}`)
+
+
+        alert("Erro ao cadastrar o Usuário")
+      }
+
+    } else {
+      alert('Dados inconsistentes. Verifique as informações de cadastro.')
+
+      setUser({ ...user, senha: "" })
+    }
+  }
+
   return (
     <Grid container direction="row" justifyContent="center" alignItems="center">
       <Grid item xs={6} className="background2"></Grid>
       <Grid item xs={6} alignItems='center'>
         <Box paddingX={10}>
-          <form>
+          <form onSubmit={onSubmit}>
             <Typography
               variant="h5"
               gutterBottom
@@ -30,6 +96,8 @@ function RegisterUser() {
               margin="normal"
               placeholder="Digite o seu nome."
               required
+              value={user.nome}
+              onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
               fullWidth
             />
             <TextField
@@ -40,6 +108,8 @@ function RegisterUser() {
               margin="normal"
               placeholder="Digite seu e-mail."
               required
+              value={user.usuario}
+              onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
               fullWidth
             />
             <TextField
@@ -51,6 +121,8 @@ function RegisterUser() {
               type="password"
               placeholder="Digite uma senha."
               required
+              value={user.senha}
+              onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
               fullWidth
             />
             <TextField
@@ -62,6 +134,8 @@ function RegisterUser() {
               type="password"
               placeholder="Confirme a sua senha."
               required
+              value={confirmarSenha}
+              onChange={(e: ChangeEvent<HTMLInputElement>) => confirmarSenhaHandle(e)}
               fullWidth
             />
             <Box marginTop={2} textAlign="center">
@@ -69,7 +143,7 @@ function RegisterUser() {
                 Cadastrar
               </Button>
               <Link to="/usuarios/logar" className="text-decorator-none">
-                <Button variant="contained" color="secondary" className="btnCancelar">
+                <Button variant="contained" className="btnCancelar">
                   Cancelar
                 </Button>
               </Link>

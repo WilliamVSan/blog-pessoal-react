@@ -7,6 +7,8 @@ import Footer from "./components/static/footer/Footer";
 import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
 import RegisterUser from "./pages/registerUser/RegisterUser";
+import ListTheme from "./components/themes/listtheme/ListTheme";
+import ListPost from "./components/Posts/listpost/ListPost";
 
 import "./App.css";
 
@@ -20,6 +22,8 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/usuarios/logar" element={<Login />} />          
           <Route path="/usuarios/cadastrar" element={<RegisterUser />} />          
+          <Route path="/temas" element={<ListTheme />} />          
+          <Route path="/postagens" element={<ListPost />} />          
         </Routes>
       </div>
       <Footer />

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { Box, Card, CardActions, CardContent, Button, Typography } from '@material-ui/core';
 import './ListPost.css';
 
-function ListPost() {
+function ListaPostagem() {
 
   return (
     <>

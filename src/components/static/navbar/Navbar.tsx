@@ -3,8 +3,7 @@ import {
   AppBar,
   Toolbar,
   Typography,
-  Box,
-  createTheme,
+  Box
 } from "@material-ui/core";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
@@ -16,15 +15,17 @@ function Navbar() {
         <Toolbar variant="dense" className="bar">
           <Box className="cursor">
             <Typography className="title" variant="h5" color="inherit">
-              Games Indie
+              Blog Pessoal
             </Typography>
           </Box>
           <Box display="flex" justifyContent="start">
-            <Box mx={1} className="cursor">
-              <Typography variant="h6" color="inherit">
-                home
-              </Typography>
-            </Box>
+          <Link to="/home" className="text-decorator-none">
+              <Box mx={1} className="cursor">
+                <Typography variant="h6" color="inherit">
+                  home
+                </Typography>
+              </Box>
+            </Link>
             <Box mx={1} className="cursor">
               <Typography variant="h6" color="inherit">
                 postagens
@@ -36,11 +37,11 @@ function Navbar() {
               </Typography>
             </Box>
             <Box mx={1} className="cursor">
-              <Typography className="green" variant="h6" color="inherit">
+              <Typography variant="h6" color="inherit">
                 cadastrar tema
               </Typography>
             </Box>
-            <Link to="/login" className="text-decorator-none">
+            <Link to="/usuarios/logar" className="text-decorator-none">
               <Box mx={1} className="cursor">
                 <Typography className="red" variant="h6" color="inherit">
                   logout

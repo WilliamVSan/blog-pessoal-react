@@ -36,7 +36,7 @@ function Footer() {
                 href="https://github.com/WilliamVSan"
                 target="_blank"
               >
-                <GitHubIcon className="redes" />
+                <GitHubIcon className="redes2" />
               </a>
               <a
                 href="https://www.instagram.com/williamvsantoss/"

@@ -1,5 +1,6 @@
 import React from "react";
 import { Typography, Box, Grid, Button } from "@material-ui/core";
+import { Link } from "react-router-dom";
 import "./Home.css";
 
 function Home() {
@@ -8,11 +9,11 @@ function Home() {
       <Grid
         container
         direction="row"
-        justifyContent="flex-end"
+        justifyContent="flex-start"
         alignItems="center"
         className="caixa"
       >
-        <Grid alignItems="flex-start" xs={12} sm={6}>
+        <Grid alignItems="flex-start" xs={6}>
           <Box paddingX={20}>
             <Typography
               variant="h3"

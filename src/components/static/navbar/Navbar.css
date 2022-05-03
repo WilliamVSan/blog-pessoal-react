@@ -1,8 +1,5 @@
 
-@font-face {
-    font-family: "Pixel";
-    src: url("../../assets/fonts/Pokemon\ Classic.ttf");
-}
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 .green:hover{
     color: greenyellow!important;
 }
@@ -10,13 +7,13 @@
     color: #DE4C6F!important;
 }
 h3{
-    font-family: "Pixel"!important;
+    font-family: 'Press Start 2P', cursive!important;
 }
 h5{
-    font-family: "Pixel"!important;
+    font-family: 'Press Start 2P', cursive!important;
 }
 h6{
-    font-family: "Pixel"!important;
+    font-family: 'Press Start 2P', cursive!important;
 }
 .back{
     background: linear-gradient(36deg, #50E0F8 8%, #62B2CC 60%)!important;
@@ -25,7 +22,8 @@ h6{
     justify-content: right;
 }
 .title{
-    padding-right: 250px;
+    padding-right: 25vh;
+    
 }
 .cursor{
     cursor:pointer;

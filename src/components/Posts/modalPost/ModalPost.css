@@ -1,8 +1,8 @@
 .cursor{
     cursor: pointer;
 }
-
 .btnModal{
-    border-color: white !important;
-    background-color: white !important;
+    background-color: #50b051 !important;
+    color: white !important;
+    font-weight: bold !important;
 }

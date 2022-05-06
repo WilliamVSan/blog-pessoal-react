@@ -3,6 +3,7 @@ import { Typography, Box, Grid, Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import "./Home.css";
 import TabPost from "../../components/Posts/tabpost/TabPost";
+import ModalPost from "../../components/Posts/modalPost/ModalPost";
 
 function Home() {
   return (
@@ -15,7 +16,7 @@ function Home() {
         className="caixa"
       >
         <Grid className="backgroundt" alignItems="flex-start" xs={6}>
-          <Box paddingX={20}>
+          <Box padding={5}>
             <Typography
               variant="h4"
               gutterBottom
@@ -37,15 +38,17 @@ function Home() {
               expresse aqui os seus pensamentos e opiniões!
             </Typography>
           </Box>
-          <Box display="flex" justifyContent="center">
+          <Box display="flex" justifyContent="center" marginBottom={3}>
             <Box marginRight={1}></Box>
             <Button
               variant="outlined"
-              color="secondary"
-              className="botao"
+              className="botaoVer"
             >
               Ver Postagens
             </Button>
+            <Box className="botao">
+          <ModalPost/>
+          </Box>
           </Box>
         </Grid>
         <Grid item xs={3}>

@@ -8,4 +8,4 @@ interface Post{
     tema?: Theme | null
 }
 
-export default Postagem
+export default Post

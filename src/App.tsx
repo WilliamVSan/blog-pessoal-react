@@ -9,6 +9,10 @@ import Login from "./pages/login/Login";
 import RegisterUser from "./pages/registerUser/RegisterUser";
 import ListTheme from "./components/themes/listtheme/ListTheme";
 import ListPost from "./components/Posts/listpost/ListPost";
+import CreatePost from "./components/Posts/createPost/CreatePost";
+import CreateTheme from "./components/themes/createTheme/CreateTheme";
+import DeleteTheme from "./components/themes/deleteTheme/DeleteTheme";
+import DeletePost from "./components/Posts/deletePost/DeletePost";
 
 import "./App.css";
 
@@ -20,10 +24,17 @@ function App() {
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/home" element={<Home />} />
-          <Route path="/usuarios/logar" element={<Login />} />          
-          <Route path="/usuarios/cadastrar" element={<RegisterUser />} />          
+          <Route path="/login" element={<Login />} />          
+          <Route path="/cadastrar" element={<RegisterUser />} />          
           <Route path="/temas" element={<ListTheme />} />          
-          <Route path="/postagens" element={<ListPost />} />          
+          <Route path="/postagens" element={<ListPost />} />
+          <Route path="/formularioPostagem" element={<CreatePost />} />
+          <Route path="/formularioPostagem/:id" element={<CreatePost />} />
+          <Route path="/formularioTema/" element={<CreateTheme />} />
+          <Route path="/formularioTema/:id" element={<CreateTheme />} />
+          <Route path="/deletarTema/:id" element={<DeleteTheme />} />
+          <Route path="/deletarPostagem/:id" element={<DeletePost />} />
+
         </Routes>
       </div>
       <Footer />

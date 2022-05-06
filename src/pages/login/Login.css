@@ -19,5 +19,12 @@
     text-decoration: none;
 }
 .register:hover{
-    color: greenyellow;
+    color: #50B051;
+}
+.btnLogar{
+    background-color: #009EFC!important;
+    color: white!important;
+}
+.btnLogar:hover{
+    background-color: #50B051!important;
 }

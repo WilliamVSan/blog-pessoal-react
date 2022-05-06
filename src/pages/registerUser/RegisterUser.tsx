@@ -139,10 +139,10 @@ function RegisterUser() {
               fullWidth
             />
             <Box marginTop={2} textAlign="center">
-              <Button type="submit" variant="contained" color="primary">
+              <Button type="submit" variant="contained" className="btnCadastrar">
                 Cadastrar
               </Button>
-              <Link to="/usuarios/logar" className="text-decorator-none">
+              <Link to="/login" className="text-decorator-none">
                 <Button variant="contained" className="btnCancelar">
                   Cancelar
                 </Button>

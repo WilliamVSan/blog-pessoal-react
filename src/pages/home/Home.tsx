@@ -14,13 +14,13 @@ function Home() {
         alignItems="center"
         className="caixa"
       >
-        <Grid alignItems="flex-start" xs={6}>
+        <Grid className="backgroundt" alignItems="flex-start" xs={6}>
           <Box paddingX={20}>
             <Typography
-              variant="h3"
+              variant="h4"
               gutterBottom
               color="textPrimary"
-              component="h3"
+              component="h4"
               align="center"
               className="titulo"
             >

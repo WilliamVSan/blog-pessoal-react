@@ -85,7 +85,7 @@ function Login() {
               fullWidth
             />
             <Box marginTop={2} textAlign="center">
-                <Button type="submit" variant="contained" color="primary">
+                <Button type="submit" variant="contained" className="btnLogar">
                   Logar
                 </Button>
             </Box>
@@ -96,7 +96,7 @@ function Login() {
                 Não tem uma conta
               </Typography>
             </Box>
-            <Link to={"/usuarios/cadastrar"} className="register">
+            <Link to={"/cadastrar"} className="register">
               <Typography
                 variant="subtitle1"
                 gutterBottom

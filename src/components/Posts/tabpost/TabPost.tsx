@@ -1,9 +1,9 @@
 import React, {useState} from 'react'
 import { AppBar, Tab, Tabs, Typography, Box } from '@material-ui/core';
 import { TabContext, TabPanel } from '@material-ui/lab';
-import ListaPostagem from '../listpost/ListPost';
-import './TabPost.css';
+import ListPost from '../listpost/ListPost';
 
+import './TabPost.css';
 
 function TabPost() {
     const [value, setValue] = useState('1')
@@ -16,12 +16,12 @@ function TabPost() {
         <AppBar className='appbar' position="static">
           <Tabs className='tabs' centered onChange={handleChange}>
             <Tab label="Todas as postagens" value="1"/>
-            <Tab label="Sobre-nós" value="2" />
+            <Tab label="Sobre-mim" value="2" />
           </Tabs>
         </AppBar>
         <TabPanel className='fundoSobre' value="1" >
           <Box display="flex" flexWrap="wrap" justifyContent="center">
-            <ListaPostagem />
+            <ListPost />
           </Box>
         </TabPanel>
         <TabPanel className='fundoSobre' value="2">

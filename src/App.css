@@ -1,6 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 *{
-  font-family: 'Press Start 2P', cursive;
+  font-family: 'Press Start 2P', cursive !important;
+}
+.botaoCancelar{
+  background-color: #DE4C6F!important;
+  color: white!important;
+}
+.botaoAtualizar{
+  background-color: #009EFC!important;
+  color: white!important;
 }
 .App {
   text-align: center;

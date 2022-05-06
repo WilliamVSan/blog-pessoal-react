@@ -12,7 +12,6 @@
     color: white !important;
     font-weight: bold !important;
     text-shadow: 4px 2px 1px grey;
-    
 }
 .botao{
     border-color: black !important;
@@ -22,4 +21,9 @@
 }
 .postagem{
     background-color: white;
+}
+.backgroundt{
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    margin-left: 30px;
 }

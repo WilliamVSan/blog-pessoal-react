@@ -8,6 +8,7 @@ import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokensReducer';
 
 import './ListPost.css';
+import { toast } from 'react-toastify';
 
 function ListPost() {
 
@@ -21,7 +22,15 @@ function ListPost() {
 
   useEffect(() => {
     if (token === "") {//se o token estiver vazio
-      alert("Você precisa estar logado")//vai alertar
+      toast.warn('você precisa estar logado', {
+        position: "top-right",
+        autoClose: 2500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        });//vai alertar
       history('/login')//e manter no login?
     }
   }, [token])

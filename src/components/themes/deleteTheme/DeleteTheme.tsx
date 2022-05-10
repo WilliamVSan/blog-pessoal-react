@@ -9,6 +9,7 @@ import Tema from '../../../models/Theme';
 import { buscaId, deleteId } from '../../../services/Service';
 
 import "./DeleteTheme.css"
+import { toast } from 'react-toastify';
 
 function DeleteTheme() {
 
@@ -24,7 +25,15 @@ function DeleteTheme() {
 
     useEffect(() => {
         if (token === "") {
-            alert("Você precisa estar logado")
+            toast.warn('você precisa estar logado', {
+                position: "top-right",
+                autoClose: 2500,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                });
             history("/login")
 
         }
@@ -54,10 +63,26 @@ function DeleteTheme() {
                 }
             });
             
-            alert('Tema deletado com sucesso');
+            toast.success('Tema deletado com sucesso', {
+                position: "top-right",
+                autoClose: 2500,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                });
             
         } catch (error) {
-            alert('Erro ao deletar');
+            toast.error('Erro ao deletar o tema', {
+                position: "top-right",
+                autoClose: 2500,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                });
         }
 
     }

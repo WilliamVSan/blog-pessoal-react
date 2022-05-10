@@ -8,6 +8,7 @@ import Theme from '../../../models/Theme'
 import Post from '../../../models/Post'
 
 import './CreatePost.css'
+import { toast } from 'react-toastify';
 
 
 function CadastroPostagem() {
@@ -37,7 +38,15 @@ function CadastroPostagem() {
 
     useEffect(() => {
         if (token === "") {
-            alert("Você precisa estar logado")
+            toast.warn('você precisa estar logado', {
+                position: "top-right",
+                autoClose: 2500,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                });
             history("/login")
         }
     }, [token])
@@ -90,9 +99,25 @@ function CadastroPostagem() {
                         'Authorization': token
                     }
                 })
-                alert('Postagem atualizada com sucesso');
+                toast.success('Postagem atualizada com sucesso.', {
+                    position: "top-right",
+                    autoClose: 2500,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    });
             } catch (error) {
-                alert("Erro ao atualizar, verifique os campos")
+                toast.error('Erro ao atualizar postagem. Verifique os campos.', {
+                    position: "top-right",
+                    autoClose: 2500,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    });
             }
 
         } else {
@@ -102,9 +127,25 @@ function CadastroPostagem() {
                         'Authorization': token
                     }
                 })
-                alert('Postagem cadastrada com sucesso');
+                toast.success('Postagem criada com sucesso', {
+                    position: "top-right",
+                    autoClose: 2500,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    });
             } catch (error) {
-                alert("Erro ao cadastrar, verifique os campos")
+                toast.error('Erro ao criar postagem. Verifique os campos', {
+                    position: "top-right",
+                    autoClose: 2500,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    });
             }
         }
         back()

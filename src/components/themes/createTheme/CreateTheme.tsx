@@ -6,6 +6,7 @@ import Theme from '../../../models/Theme';
 import { buscaId, post, put } from '../../../services/Service';
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokensReducer';
+import { toast } from 'react-toastify';
 
 
 function CadastroTema() {
@@ -21,7 +22,15 @@ function CadastroTema() {
 
     useEffect(() => {
         if (token == "") {
-            alert("Você precisa estar logado")
+            toast.warn('você precisa estar logado', {
+                position: "top-right",
+                autoClose: 2500,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                });
             history("/login")
     
         }
@@ -61,14 +70,30 @@ function CadastroTema() {
                         'Authorization': token
                     }
                 })
-                alert('Tema atualizado com sucesso');
+                toast.success('Tema atualizado com sucesso', {
+                    position: "top-right",
+                    autoClose: 2500,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    });
             } else {
                 post(`/temas`, theme, setTheme, {
                     headers: {
                         'Authorization': token
                     }
                 })
-                alert('Tema cadastrado com sucesso');
+                toast.success('Tema criado com sucesso', {
+                    position: "top-right",
+                    autoClose: 2500,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    });
             }
             back()
     

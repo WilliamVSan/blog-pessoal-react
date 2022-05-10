@@ -7,6 +7,7 @@ import User from "../../models/User";
 import { cadastroUsuario } from "../../services/Service";
 
 import "./RegisterUser.css";
+import { toast } from "react-toastify";
 
 function RegisterUser() {
 
@@ -55,18 +56,40 @@ function RegisterUser() {
 
       try {
         cadastroUsuario(`/usuarios/cadastrar`, user, setUserResult)
-        alert('Usuario cadastrado com sucesso')
+        toast.success('Cadastrado com sucesso', {
+          position: "top-right",
+          autoClose: 2500,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          });
 
 
       } catch (error) {
         console.log(`Error: ${error}`)
-
-
-        alert("Erro ao cadastrar o Usuário")
+        toast.error('Erro ao cadastrar usuário', {
+          position: "top-right",
+          autoClose: 2500,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          });
       }
 
     } else {
-      alert('Dados inconsistentes. Verifique as informações de cadastro.')
+      toast.warn('Dados inconsistentes. Verifique as informações de cadastro.', {
+        position: "top-right",
+        autoClose: 2500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        });
 
       setUser({ ...user, senha: "" })
     }

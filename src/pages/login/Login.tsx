@@ -1,4 +1,4 @@
-import React, { ChangeEvent ,useEffect, useState } from "react";
+import React, { ChangeEvent, useEffect, useState } from "react";
 import { Box, Button, Grid, TextField, Typography } from "@material-ui/core";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -6,8 +6,10 @@ import UserLogin from "../../models/UserLogin";
 import { login } from "../../services/Service"
 
 import "./Login.css";
+import "react-toastify/dist/ReactToastify.css"
 import { addToken } from "../../store/tokens/actions";
 import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
 
 function Login() {
 
@@ -18,45 +20,61 @@ function Login() {
   const [token, setToken] = useState('')
 
   const [userLogin, setUserLogin] = useState<UserLogin>({
-      id: 0,
-      nome: "",
-      usuario: "",
-      senha: "",
-      foto: "",
-      token: ""
+    id: 0,
+    nome: "",
+    usuario: "",
+    senha: "",
+    foto: "",
+    token: ""
   })
 
   useEffect(() => {
-      if(token !== ""){
-          dispatch(addToken(token))
-          history('/home')
-      }
+    if (token !== "") {
+      dispatch(addToken(token))
+      history('/home')
+    }
   }, [token])
 
   function updatedModel(e: ChangeEvent<HTMLInputElement>) {
-      setUserLogin({
-          ...userLogin,
-          [e.target.name]: e.target.value           
-      })
+    setUserLogin({
+      ...userLogin,
+      [e.target.name]: e.target.value
+    })
   }
 
-  async function onSubmit(e: ChangeEvent<HTMLFormElement>){
-      e.preventDefault()
-      
-      try {
-          await login(`/usuarios/logar`, userLogin, setToken)
-          alert("Usuário logado com sucesso")
+  async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
+    e.preventDefault()
 
-      } catch (error) {
-          alert("Dados do usuário incorretos")
-      }
+    try {
+      await login(`/usuarios/logar`, userLogin, setToken)
+      toast.success('Logado com sucesso', {
+        position: "top-right",
+        autoClose: 2500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+
+    } catch (error) {
+      toast.error('Erro ao logar', {
+        position: "top-right",
+        autoClose: 2500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
   }
-  
+
   return (
     <Grid container direction="row" justifyContent="center" alignItems="center">
       <Grid alignItems="center" xs={6}>
         <Box padding={20}>
-          <form onSubmit={ onSubmit}>
+          <form onSubmit={onSubmit}>
             <Typography
               variant="h5"
               gutterBottom
@@ -73,8 +91,8 @@ function Login() {
               variant="outlined"
               name="usuario"
               margin="normal"
-              value={ userLogin.usuario }
-              onChange={ (e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
+              value={userLogin.usuario}
+              onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
               fullWidth
             />
             <TextField
@@ -84,14 +102,14 @@ function Login() {
               name="senha"
               margin="normal"
               type="password"
-              value={ userLogin.senha }
-              onChange={ (e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
+              value={userLogin.senha}
+              onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
               fullWidth
             />
             <Box marginTop={2} textAlign="center">
-                <Button type="submit" variant="contained" className="btnLogar">
-                  Logar
-                </Button>
+              <Button type="submit" variant="contained" className="btnLogar">
+                Logar
+              </Button>
             </Box>
           </form>
           <Box>

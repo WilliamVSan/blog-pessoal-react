@@ -3,4 +3,9 @@
 }
 *{
     font-family: 'Press Start 2P', cursive;
-  }
+}
+.btnFinalizar{
+    background-color: #50b051!important;
+    color: white!important;
+    font-weight: bold!important;
+}

@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { Box, Card, CardActions, CardContent, Button, Typography } from '@material-ui/core';
-import useLocalStorage from 'react-use-localstorage';
 
 import Post from '../../../models/Post';
 import { busca } from '../../../services/Service';
+import { useSelector } from 'react-redux';
+import { TokenState } from '../../../store/tokens/tokensReducer';
 
 import './ListPost.css';
 
@@ -14,7 +15,9 @@ function ListPost() {
 
   const [posts, setPosts] = useState<Post[]>([])//ele é colocado entre o useState e () para pegar uma array[lista] de objetos.
 
-  const [token, setToken] = useLocalStorage('token')//é o nome que aparece no armazenamento interno.
+  const token = useSelector<TokenState, TokenState["tokens"]>(//acessando a store, pegando a tokens de state e colocando o valor na const token
+    (state) => state.tokens
+  )//é o nome que aparece no armazenamento interno.
 
   useEffect(() => {
     if (token === "") {//se o token estiver vazio

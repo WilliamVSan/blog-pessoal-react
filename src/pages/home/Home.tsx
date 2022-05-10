@@ -1,11 +1,27 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Typography, Box, Grid, Button } from "@material-ui/core";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Home.css";
 import TabPost from "../../components/Posts/tabpost/TabPost";
 import ModalPost from "../../components/Posts/modalPost/ModalPost";
+import { useSelector } from "react-redux";
+import { TokenState } from "../../store/tokens/tokensReducer";
 
 function Home() {
+
+  let history = useNavigate();
+
+  const token = useSelector<TokenState, TokenState["tokens"]>(
+    (state) => state.tokens
+  );
+
+  useEffect(() => {
+    if (token === "") {
+      alert("Você precisa estar logado")
+      history("/login")
+    }
+  });
+
   return (
     <>
       <Grid
@@ -40,13 +56,15 @@ function Home() {
           </Box>
           <Box display="flex" justifyContent="center" marginBottom={3}>
             <Box marginRight={1}></Box>
+            <Link to = "/postagens" className="text-decorator-none">
             <Button
               variant="outlined"
               className="botaoVer"
             >
               Ver Postagens
             </Button>
-            <Box className="botao">
+            </Link>
+            <Box paddingLeft={5} className="botao">
           <ModalPost/>
           </Box>
           </Box>

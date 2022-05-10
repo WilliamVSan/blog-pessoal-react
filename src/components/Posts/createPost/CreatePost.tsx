@@ -1,13 +1,14 @@
 import React, { ChangeEvent, useEffect, useState } from 'react'
 import { Button, Container, FormControl, FormHelperText, InputLabel, MenuItem, Select, TextField, Typography } from '@material-ui/core'
 import { useNavigate, useParams } from 'react-router-dom'
-import useLocalStorage from 'react-use-localstorage'
-
+import { useSelector } from 'react-redux';
+import { TokenState } from '../../../store/tokens/tokensReducer';
 import { busca, buscaId, post, put } from '../../../services/Service';
 import Theme from '../../../models/Theme'
 import Post from '../../../models/Post'
 
 import './CreatePost.css'
+
 
 function CadastroPostagem() {
 
@@ -17,7 +18,9 @@ function CadastroPostagem() {
 
     const [temas, setTemas] = useState<Theme[]>([])
 
-    const [token, setToken] = useLocalStorage('token')
+    const token = useSelector<TokenState, TokenState["tokens"]>(
+        (state) => state.tokens
+        )
 
     const [tema, setTema] = useState<Theme>({
         id: 0,
@@ -115,7 +118,7 @@ function CadastroPostagem() {
     return (
         <Container maxWidth="sm" className="topo">
             <form onSubmit={onSubmit}>
-                <Typography variant="h5" color="textSecondary" component="h5" align="center" >Formulário de cadastro postagem</Typography>
+                <Typography variant="h5" color="textSecondary" component="h5" align="center" >Criação de postagem</Typography>
 
                 <TextField
                     value={postagem.titulo}

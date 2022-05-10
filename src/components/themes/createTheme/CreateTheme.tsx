@@ -2,15 +2,18 @@ import React, {useState, useEffect, ChangeEvent} from 'react'
 import { Container, Typography, TextField, Button } from "@material-ui/core"
 import {useNavigate, useParams } from 'react-router-dom'
 import './CreateTheme.css';
-import useLocalStorage from 'react-use-localstorage';
 import Theme from '../../../models/Theme';
 import { buscaId, post, put } from '../../../services/Service';
+import { useSelector } from 'react-redux';
+import { TokenState } from '../../../store/tokens/tokensReducer';
 
 
 function CadastroTema() {
     let history = useNavigate();
     const { id } = useParams<{id: string}>();
-    const [token, setToken] = useLocalStorage('token');
+    const token = useSelector<TokenState, TokenState["tokens"]>(
+    (state) => state.tokens
+    )
     const [theme, setTheme] = useState<Theme>({
         id: 0,
         descricao: ''
@@ -78,9 +81,9 @@ function CadastroTema() {
     return (
         <Container maxWidth="sm" className="topo">
             <form onSubmit={onSubmit}>
-                <Typography variant="h3" color="textSecondary" component="h1" align="center" >Formulário de cadastro theme</Typography>
+                <Typography variant="h3" color="textSecondary" component="h1" align="center" >Criação de tema</Typography>
                 <TextField value={theme.descricao} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedTema(e)} id="descricao" label="descricao" variant="outlined" name="descricao" margin="normal" fullWidth />
-                <Button type="submit" variant="contained" color="primary">
+                <Button type="submit" variant="contained" className='btnFinalizar'>
                     Finalizar
                 </Button>
             </form>

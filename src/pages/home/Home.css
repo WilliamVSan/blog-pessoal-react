@@ -28,3 +28,6 @@
     color: white!important;
     font-weight: bold!important;
 }
+.text-decorator-none{
+    text-decoration: none;
+}
